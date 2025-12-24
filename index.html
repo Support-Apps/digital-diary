@@ -325,6 +325,45 @@
             .week-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .calendar-grid {
+                gap: 3px;
+            }
+            
+            .calendar-day-name {
+                padding: 5px 2px;
+                font-size: 0.7em;
+                border-radius: 5px;
+            }
+            
+            .calendar-day {
+                aspect-ratio: auto;
+                min-height: 40px;
+                padding: 4px;
+                border-radius: 5px;
+            }
+            
+            .day-number {
+                font-size: 0.85em;
+            }
+            
+            .day-events-preview {
+                font-size: 0.5em;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .calendar-nav {
+                gap: 10px;
+            }
+            
+            .month-title {
+                font-size: 1em;
+                min-width: 120px;
+            }
         }
         
         .day-column {
@@ -924,6 +963,7 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 5px;
+            overflow-x: auto;
         }
         
         .calendar-day-name {
@@ -933,6 +973,7 @@
             color: white;
             border-radius: 10px;
             font-size: 0.9em;
+            min-width: 40px;
         }
         
         .calendar-day {
@@ -944,6 +985,7 @@
             transition: all 0.3s ease;
             position: relative;
             min-height: 60px;
+            min-width: 40px;
         }
         
         .calendar-day:hover {
@@ -1589,7 +1631,9 @@
                         <button class="calendar-btn" onclick="changeMonth(1)">←</button>
                     </div>
                 </div>
-                <div class="calendar-grid" id="calendarGrid"></div>
+                <div style="overflow-x: auto; margin: 10px 0;">
+                    <div class="calendar-grid" id="calendarGrid"></div>
+                </div>
                 <div class="btn-center">
                     <button class="save-section-btn" onclick="saveCalendar()">💾 שמירה</button>
                 </div>
