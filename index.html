@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
     <title>היומן שלי ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <style>
@@ -327,28 +327,33 @@
             }
             
             .calendar-grid {
-                gap: 3px;
+                gap: 2px;
+                min-width: 280px;
             }
             
             .calendar-day-name {
-                padding: 5px 2px;
-                font-size: 0.7em;
+                padding: 4px 2px;
+                font-size: 0.65em;
                 border-radius: 5px;
+                min-width: 35px;
             }
             
             .calendar-day {
-                aspect-ratio: auto;
-                min-height: 40px;
-                padding: 4px;
+                aspect-ratio: unset;
+                min-height: 35px;
+                height: auto;
+                padding: 3px;
                 border-radius: 5px;
+                min-width: 35px;
             }
             
             .day-number {
-                font-size: 0.85em;
+                font-size: 0.75em;
             }
             
             .day-events-preview {
-                font-size: 0.5em;
+                font-size: 0.45em;
+                display: none;
             }
             
             .calendar-header {
@@ -357,12 +362,51 @@
             }
             
             .calendar-nav {
-                gap: 10px;
+                gap: 8px;
+            }
+            
+            .calendar-btn {
+                width: 35px;
+                height: 35px;
             }
             
             .month-title {
-                font-size: 1em;
-                min-width: 120px;
+                font-size: 0.95em;
+                min-width: 100px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .calendar-grid {
+                gap: 1px;
+                min-width: 250px;
+            }
+            
+            .calendar-day-name {
+                padding: 3px 1px;
+                font-size: 0.55em;
+                min-width: 30px;
+            }
+            
+            .calendar-day {
+                min-height: 30px;
+                padding: 2px;
+                min-width: 30px;
+            }
+            
+            .day-number {
+                font-size: 0.7em;
+            }
+            
+            .calendar-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8em;
+            }
+            
+            .month-title {
+                font-size: 0.85em;
+                min-width: 90px;
             }
         }
         
@@ -977,14 +1021,13 @@
         }
         
         .calendar-day {
-            aspect-ratio: 1;
             background: var(--cream);
             border-radius: 10px;
             padding: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
-            min-height: 60px;
+            min-height: 55px;
             min-width: 40px;
         }
         
@@ -1631,7 +1674,7 @@
                         <button class="calendar-btn" onclick="changeMonth(1)">←</button>
                     </div>
                 </div>
-                <div style="overflow-x: auto; margin: 10px 0;">
+                <div style="overflow-x: auto; margin: 10px 0; -webkit-overflow-scrolling: touch;">
                     <div class="calendar-grid" id="calendarGrid"></div>
                 </div>
                 <div class="btn-center">
